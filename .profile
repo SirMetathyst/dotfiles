@@ -31,5 +31,10 @@ alias firefox="flatpak run org.mozilla.firefox"
 
 
 
-alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 dotfiles config --local status.showUntrackedFiles no
+
+for f in "$HOME"/.profile.d/*; do
+	# shellcheck source=/dev/null
+	. "$f"
+done
